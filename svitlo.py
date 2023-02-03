@@ -28,42 +28,42 @@ text = file.read()
 file.close()
 
 text = re.sub(r'\n|\s+', ' ', text).strip()
-###################################################### 1 turn
+# 1 turn
 res1 = re.search(r'✅1(.*)✅2', text)
 with open('meta.txt', 'w', encoding='utf-8') as f:
     f.write(str(res1.group(0)))
 file1 = open('meta.txt', 'r', encoding='utf-8')
 text1 = file1.read()
 file1.close()
-text1 = text1[11 : -4]
+text1 = text1[11: -4]
 with open('first_res.txt', 'w') as one:
     one.write(text1)
-###################################################### 2 turn
+# 2 turn
 res2 = re.search(r'✅2(.*)✅3', text)
 with open('meta.txt', 'w', encoding='utf-8') as f:
     f.write(str(res2.group(0)))
 file2 = open('meta.txt', 'r', encoding='utf-8')
 text2 = file2.read()
 file2.close()
-text2 = text2[11 : -4]
+text2 = text2[11: -4]
 with open('second_res.txt', 'w') as two:
     two.write(text2)
-###################################################### 3 turn
+# 3 turn
 res3 = re.search(r'✅3(.*)00.', text)
 with open('meta.txt', 'w', encoding='utf-8') as f:
     f.write(str(res3.group(0)))
 file3 = open('meta.txt', 'r', encoding='utf-8')
 text3 = file3.read()
 file3.close()
-text3 = text3[10 : -1]
+text3 = text3[10: -1]
 with open('third_res.txt', 'w', encoding='utf-8') as three:
     three.write(text3)
 
 lines = text1, text2, text3
 with open("full_res.txt", "w", encoding='utf-8') as full:
-    for  line in lines:
+    for line in lines:
         full.write(line + '\n')
-###################################################### FULL
+# FULL
 
 res_one = 'first_res.txt'
 res_two = 'second_res.txt'
@@ -80,7 +80,7 @@ if os.path.exists(meta):
     os.remove('meta.txt')
 if os.path.exists(message_file):
     os.remove('message.csv')
-###################################################### deleting unnecessary files
+# deleting unnecessary files
 
 input_file = 'full_res.txt'
 output_file = 'full.xlsx'
@@ -94,8 +94,8 @@ with open('full_res.txt', 'r', encoding='utf-8') as data:
         ws.append(row)
 
 wb.save(output_file)
-###################################################### save basa date
+# save base date
 full_file = 'full_res.txt'
 if os.path.exists(full_file):
     os.remove('full_res.txt')
-###################################################### deleting unnecessary files
+# deleting unnecessary files
