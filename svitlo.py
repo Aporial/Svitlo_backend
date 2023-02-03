@@ -18,7 +18,6 @@ channel_username = 'https://t.me/svitlosumschina'
 data = []
 for message in client.get_messages(channel_username, limit=1, search='черга'):
     data.append([message.message])
-    print(message.message)
 df = pd.DataFrame(data)
 
 df.to_csv('message.csv', encoding='utf-8')
