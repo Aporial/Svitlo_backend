@@ -76,9 +76,9 @@ if os.path.exists(res_two):
     os.remove('second_res.txt')
 if os.path.exists(res_three):
     os.remove('third_res.txt')
-if os.path.exists(meta:
+if os.path.exists(meta):
     os.remove('meta.txt')
-if os.path.exists(message_file:
+if os.path.exists(message_file):
     os.remove('message.csv')
 ###################################################### deleting unnecessary files
 
@@ -96,6 +96,6 @@ with open('full_res.txt', 'r', encoding='utf-8') as data:
 wb.save(output_file)
 ###################################################### save basa date
 full_file = 'full_res.txt'
-if os.path.exists(full_file:
+if os.path.exists(full_file):
     os.remove('full_res.txt')
 ###################################################### deleting unnecessary files
